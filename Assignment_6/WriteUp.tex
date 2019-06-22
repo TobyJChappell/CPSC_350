@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Sorting Write Up}
+\author{Toby Chappell }
+\date{May 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+For this assignment, I implemented 4 sorting algorithms: Bubble Sort, Insertion Sort, Selection Sort, and Quick Sort. For each sort, I used 3 input text files to test the algorithms on. A file consists of 50,000 doubles which are in sorted, reverse, and random order.
+
+\section{Run Times}
+Random File: Quick sort obviously preformed the best averaging at around 10 milliseconds. Bubble sort did the worst at about 8,000 milliseconds.
+Sorted File: Insertion sort had the best run time (0-1 milliseconds). Quick sort did the worst at about 9,000 milliseconds.
+Reverse File: Selection sort preformed best at around 3,000 milliseconds.  Quick sort again had the worst run time at 6,000 milliseconds.
+
+\section{Activity Monitor}
+For each sort, I checked the activity monitor to see how it affected the CPU and Memory (\% signify the \% CPU time).  
+Bubble sort: Ranged between 60\% to 100\%.
+Selection sort: Stayed relatively constant at around 35\% to 40\%.
+Insertion sort: Ranged from 10\% to 50\%.
+Quick sort: Ranged from 5\% to 100\%.
+
+\section{Analysis}
+Bubble sort did better on sorted data but worse on random data. The reason for this is because the algorithm only has to make the minimum number of checks and it does not have to make any swaps. Selection sort was the most consistent sorting algorithm, averaging about 3,000 milliseconds each time. The reason for this is because, regardless of the order of input, selection sort preforms at most 1 swap and the same number of checks per iteration. Insertion sort preformed the best on the sorted list due to the fact that run time becomes O(n). On the reversely sorted data, however, performance became less than selection sort due to the fact that each element had to be inserted in the front meaning the sorted section had to shift one every time. Quick sort on randomly generated lists preformed the most optimally. However, Quick sort actually preformed the worst for sorted and reverse data inputs (6,000-9,000 milliseconds). However, this was intentional in that I made the pivot for quick sort the last element each time to demonstrate the importance of making the pivot a random value or the median. By making the last element the pivot on a sorted list, the list is not actually separated in half each time and as such efficiency drops significantly.
+
+\end{document}
